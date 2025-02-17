@@ -1,0 +1,23 @@
+.menu{
+
+    display:none;
+  }
+  
+  @media (max-width:641px) {
+.menu{
+    display: block;
+    cursor: pointer;
+}
+.stylecss{
+height: 250px;
+clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+transition: 0.3s;
+
+}
+
+.stylecss.active{
+clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+
+}
+
+  }
