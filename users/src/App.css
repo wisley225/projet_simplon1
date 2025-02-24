@@ -1,1 +1,56 @@
 
+/* Conteneur principal de la pagination */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    justify-content: end  ;
+
+  }
+  
+  /* Chaque numéro de page */
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  /* Lien des numéros de page */
+  .page-link {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Boutons "previous" et "next" */
+  .prev-item, .next-item {
+    margin: 0 10px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+
+  }
+  
+  /* Élément "..." */
+  .break-item {
+    padding: 10px 15px;
+    color: #6c757d;
+  }
+  
+  /* Page active */
+  .active .page-link {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    pointer-events: none;
+  }
+  

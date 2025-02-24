@@ -21,6 +21,9 @@ const SignUp = ({sign}) => {
  const [errors, setErrors] = useState('');
  const [succes, setSucces] = useState('');
 
+
+ 
+
  const handleChange=(e)=>{
      const {name,value}=e.target
      setInputs({...inputs,[name]:value});
@@ -43,7 +46,7 @@ const SignUp = ({sign}) => {
 
  
 
-  const response = await axios.post('http://localhost/e-commerce/sign_up.php',inputs)
+  const response=await axios.post('http://localhost/e-commerce/sign_up.php',inputs)
        setSucces(response.data.message);
    
 

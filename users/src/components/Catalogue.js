@@ -3,7 +3,7 @@ import { useState, useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
 import image_connexion2 from '../picture/image_connexion2.webp'
 
-const Catalogue = ({ idProduct, usersid,catalogue,setShowCatalogue }) => {
+const Catalogue = ({ idProduct, usersid, catalogue,setCatalogue, notifPanier }) => {
   const [product, setProduct] = useState({});
   const [quantite, setQuantite] = useState(1);
   const [prixTotal, setPrixTotal] = useState(0);
@@ -22,7 +22,7 @@ const Catalogue = ({ idProduct, usersid,catalogue,setShowCatalogue }) => {
         console.log(findProduct);
       }
 
-      showCatalogue()
+    
     } catch (error) {
       console.error("Erreur lors de la récupération des produits:", error);
     }
@@ -43,6 +43,7 @@ const Catalogue = ({ idProduct, usersid,catalogue,setShowCatalogue }) => {
   const soustra = () => {
     if (quantite > 1) {
       setQuantite((prevQuantite) => prevQuantite - 1);
+      
       setPrixTotal((prevPrix) => prevPrix - product.prix);
     }
   };
@@ -53,33 +54,22 @@ const Catalogue = ({ idProduct, usersid,catalogue,setShowCatalogue }) => {
   };
 
 
-  const [closeCatalogue, setCloseCatalogue]=useState(false)
-  const showCatalogue=()=>{
-
-
-    if (catalogueRef.current) {
-      catalogueRef.current.classList.remove('scale-0');
-     
-     }
-    
-  }
-
-  const ajouter = async () => {
-
-    
-      
+  const ajouter = async () => {     
       if (idProduct !== null && usersid !== null) {
 
         try {
           const res = await axios.post("http://localhost/e-commerce/panier", {idProduct,usersid, quantite });
        
           console.log(res.data);
-          localStorage.setItem("prixTotal",prixTotal)
-
-          if (catalogueRef.current) {
-            catalogueRef.current.classList.toggle('scale-0')
-            setShowCatalogue(false)
+          localStorage.setItem("prixTotal",prixTotal)         
+          alert(res.data.succes)
+          if (res.data.succes) {
+            const response = await axios.post("http://localhost/e-commerce/recup_panier", { idProduct, usersid });
+              if (response.data.length>0) {
+                notifPanier(response.data.length)
+              }
           }
+   
         } catch (error) {
           console.error("Erreur lors de la récupération du panier", error);
         }
@@ -87,20 +77,22 @@ const Catalogue = ({ idProduct, usersid,catalogue,setShowCatalogue }) => {
       
         
       }
+    };
 
 
-   
-  };
-
-
-if (catalogue) { 
-showCatalogue()
+if (catalogue) {
+  if (catalogueRef.current) {
+    catalogueRef.current.classList.remove('scale-0')
+  }
+  
 }
-else{
+
+const removeCatalogue=()=>{
+
   if (catalogueRef.current) {
     catalogueRef.current.classList.add('scale-0')
-
   }
+ setCatalogue(!catalogue)
 }
 
 
@@ -108,9 +100,8 @@ else{
   return (
     <>
     
-<div ref={catalogueRef}  className="     transition-all   h-auto grid grid-cols-2 fixed left-60 bottom-8   z-10 w-7/12    transform   scale-0 ">
+<div  ref={catalogueRef}  className="     transition-all   h-auto grid grid-cols-2 fixed left-60 bottom-8   z-10 w-7/12 transform scale-0  ">
 <div  className=" bg-white rounded-s-lg  p-2 ">
-  
 <div className="  flex flex-col justify-evenly ">
 <div className="   size-44  m-auto mt-4 rounded-lg ">
   <img src={`http://localhost/e-commerce/Admin/picture/${product.image_url}`} alt="" className="h-full w-full rounded-lg border" />
@@ -147,17 +138,12 @@ else{
 </ul>
     </div> 
 
-
-
-
-
-
 </div>
-
 
 
 <div className="   bg-neutral-300 flex justify-center rounded-e-lg    p-2  "> 
 <div className="bg-white  w-full rounded-md p-2  ">
+<i onClick={removeCatalogue } class="fa-solid fa-xmark  w-full text-end cursor-pointer"></i>
   <h1 className="text-2xl font-semibold border-b ">details de la commande</h1>
   <div className="flex ">
     <p className="w-8/12 place-content-center text-xl font-medium ">Quantite</p><div className=" h-10  grid  gap-1 grid-cols-3 w-4/12 "> 

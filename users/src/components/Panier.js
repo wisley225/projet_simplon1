@@ -15,8 +15,10 @@ const Panier = () => {
   // Récupérer les produits du panier
   const fetchData = async () => {
     try {
-      const response = await axios.post("http://localhost/e-commerce/recup_panier", { Productid, usersid });
+      const response = await axios.post("http://localhost/e-commerce/recup_panier",{Productid,usersid});
       setPanierProduct(response.data);
+     
+      
     } catch (error) {
       console.error("Erreur lors de la récupération des produits:", error);
     }
@@ -70,6 +72,8 @@ if (panierProduct.length>0) {
   };
 
 const formCommande=()=>{
+
+
 navigate('/Commande')
 
 }
@@ -84,7 +88,7 @@ navigate('/Commande')
 {panierProduct.length>0 ? (
    <div className="   ">
   
-   <ul className="w-9/12      max-[850px]:w-full ">
+   <ul className="w-9/12       max-[850px]:w-full ">
      {panierProduct.map((produit) => ( 
        <li key={produit.panier_id} className=" mb-4 max-[480px]:flex-col  max-[480px]:justify-center  flex justify-between items-center  py-3  border-y rounded-xl">
          <div className=" flex justify-center items-center  ">

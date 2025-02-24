@@ -43,7 +43,9 @@ const Commande = () => {
       console.log(produit)
       const response = await axios.post("http://localhost/e-commerce/commander", { ...inputs, tabProduct:produit });
       console.log(response.data)
-    }
+      alert(response.data.message)
+      navigate(-2)  
+     }
     else{
       alert(restabproduct.data.error)
 
@@ -85,7 +87,7 @@ const Commande = () => {
           value={inputs.addressLivraison}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-        />
+       required  />
       </div>
 
       {/* Option de livraison */}
@@ -100,7 +102,7 @@ const Commande = () => {
               checked={inputs.optionLivraison === "standard"}
               onChange={handleChange}
               className="form-radio"
-            />
+          required   />
             <span className="ml-2">Standard</span>
           </label>
 
@@ -112,7 +114,7 @@ const Commande = () => {
               checked={inputs.optionLivraison === "express"}
               onChange={handleChange}
               className="form-radio"
-            />
+          required  />
             <span className="ml-2">Express</span>
           </label>
         </div>

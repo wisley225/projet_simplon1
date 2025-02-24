@@ -9,6 +9,7 @@ import ModifPassword from './components/ModifPassword';
 import Commande from './components/Commande';
 import Panier from './components/Panier';
 import Swipper from './components/Swipper';
+import Chargement from './components/Chargement';
 
 
 function App() {
@@ -28,10 +29,7 @@ function App() {
   return (
   
  <>
-
-
      <Routes>
-      
         <Route path="/" element={<Home />}/>
         <Route path="/SignIn" element={<SignIn onSendUsersId={recuIdUser} />}  />       
         <Route path="/Shop" element={<Shop usersid={usersId}  />}/>
