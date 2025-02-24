@@ -1,0 +1,12 @@
+.show ul{
+
+transition:0.3s;
+transform: scale(0)
+}
+
+.show:hover ul{
+ display: block;
+  transform: scale(1)
+
+;
+}
