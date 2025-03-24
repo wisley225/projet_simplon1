@@ -19,10 +19,8 @@ const fetchUsers=async()=>{
     try{
 
     const   userId= localStorage.getItem('usersid')
-            console.log(userId)
         const response=await axios.post('http://localhost/e-commerce/Admin/profile',{userId});
        
-        console.log(response.data[0])
         setUsers(response.data[0]);
     }
     catch(error){

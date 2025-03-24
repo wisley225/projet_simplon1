@@ -251,7 +251,11 @@ setCommandes(originalCommandes.filter(c=>String(c.user_id).includes(value)) || o
         }  `  }   ref={colorsRef}  > {commande.order_status}</span>
         <span className="text-center"> {commande.option_livraison}</span>
         <span className="text-center  "> {commande.created_at}</span>
-       <span onClick={()=>showDetails(commande.id)} className="   text-center cursor-pointer flex  items-center m-auto  hover:text-green-500  ">details..</span>
+       <button onClick={()=>showDetails(commande.id)} className= {`text-center cursor-pointer flex  items-center m-auto  ${commande.order_status==="en cours" ? 'text-orange-600 rounded-lg  px-2 bg-orange-300 transition-all hover:text-orange-700': ''} 
+                                                                                                                         ${commande.order_status==="expedie" ? 'text-blue-600 rounded-lg  px-2 bg-blue-300 transition-all hover:text-blue-700': ''} 
+                                                                                                                          ${commande.order_status==="livre" ? 'text-green-600 rounded-lg  px-2 bg-green-300 transition-all hover:text-green-700': ''}
+                                                                                                                           ${commande.order_status==="annuler" ? 'text-red-600 rounded-lg  px-2 bg-red-300 transition-all hover:text-red-700': ''}border`}  
+                                                                                                                           >details..</button>
     </li>
 
    ))}

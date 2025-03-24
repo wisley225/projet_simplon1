@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       spacing: {
         'left-center': '600px',
-      },
+      }
 
     },
   },

@@ -51,7 +51,7 @@ setchargement(true)
 
 
 useEffect(() => {
-  console.log(products);
+  
   const endOffset = itemsOffset + itemsPerPage;
   setCurrentItems(products.slice(itemsOffset, endOffset));
   setPageCount(Math.ceil(products.length / itemsPerPage));
@@ -92,6 +92,7 @@ if(recherche=='all'){
 
 }
 
+
 setProducts( productsFiltre.filter(p=>p.categories===recherche))
 
 
@@ -107,7 +108,6 @@ const BarSearch=async(recherche)=>{
 const notifPanier=(panierLength)=>{
 
   setPanierLength(panierLength)
-  console.log(panierLength)
 
 }
 
@@ -138,7 +138,7 @@ return (
   <div className="flex  items-center justify-end">
   <i onClick={handleFiltrer}   className="fa-solid fa-filter border mr-2  p-3 rounded-full text-neutral-400 cursor-pointer transition-all hover:transition-all hover:bg-blue-100   " ></i>
   <div className=" w-60 flex border text-center   rounded-lg"><i class="fa-solid fa-magnifying-glass text-lg self-center  w-1/6    text-gray-300"></i>
- <input onChange={(e)=>BarSearch(e.target.value)}  type="search  " placeholder="search product" className=" py-2 ml-4  w-full outline-none "  /> 
+ <input onChange={(e)=>BarSearch(e.target.value)}  type="search  " placeholder="recherche" className=" py-2 ml-4  w-full outline-none "  /> 
 </div>
   </div>
 

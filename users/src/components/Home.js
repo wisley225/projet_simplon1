@@ -32,7 +32,6 @@ const sign=()=>{
 const showMenu=()=>{
 
   if (showMenuRef.current) {
-    console.log(showMenuRef.current)
      showMenuRef.current.classList.toggle('active')
   }
 
@@ -80,7 +79,7 @@ const showMenu=()=>{
     <p className="  mr-8 text-lg text-white inline-block w-1/2    ">
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, quo qui repellendus sunt beatae,
     !</p>
-    <button className=" my-4  text-white text-2xl font-semibold rounded-full cursor-pointer
+    <button onClick={sign} className=" my-4  text-white text-2xl font-semibold rounded-full cursor-pointer
             hover:bg-none hover:transition-all transition-all  inline-block   bg-gradient-to-r
               from-violet-600  to-pink-300 via-violet-400 px-10 py-2 ">shop Now</button>
      
@@ -109,7 +108,7 @@ const showMenu=()=>{
         spaceBetween={10}
         slidesPerView={1}
         loop={true} 
-        autoplay={{ delay: 5000, disableOnInteraction: false }} // Défilement toutes les 3s
+        autoplay={{ delay: 3000, disableOnInteraction: false }} // Défilement toutes les 3s
         className="max-[572px]:border border-violet-700 rounded-xl    w-full "
       >
         {images.map((src, index) => (

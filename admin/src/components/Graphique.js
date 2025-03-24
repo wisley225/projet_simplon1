@@ -41,7 +41,7 @@ const getjourSemaine=(date)=>{
 const donneesParjour={};
 
 donnees.forEach(donnee=>{
-    const jour=getjourSemaine(donnee.created_at);
+    const jour=getjourSemaine(donnee.created_at); 
     if (!donneesParjour[jour]) {
         donneesParjour[jour]=[]
     }

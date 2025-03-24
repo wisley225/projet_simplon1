@@ -44,27 +44,36 @@ const SignUp = ({sign}) => {
 
 }
 
- 
 
-  const response=await axios.post('http://localhost/e-commerce/sign_up.php',inputs)
-       setSucces(response.data.message);
+else{
+
+  try {
+    const response=await axios.post('http://localhost/e-commerce/sign_up.php',inputs)
+    setSucces(response.data.message);
+
+    if(response.data.message==="valide"){
+    
+        alert('inscription validé') 
+        navigate('/SignIn');
+        setErrors('');
    
-
-  if(response.data.message==="valide"){
-    try {
-       alert('inscription validé') 
-      navigate('/SignIn');
-      setErrors('');
-    } catch (err){
-      setErrors('Une erreur est survenue pendant l\'inscription');
-      setSucces('');
-    }}
     }
+    else{
+      setErrors(response.data.message)
+    }
+    
+  } catch (error) {
+    
+    console.error("ereur lors de l'envoie du formulaire ",error)
+  }
+
+}}
+
+
 
 if (sign) {
   if (filterRef.current) {
      filterRef.current.classList.remove('scale-0')
-    console.log(filterRef.current)
     }
 }
 else{
@@ -87,8 +96,8 @@ return (
     <form onSubmit={handleSubmit} method="POST" className=" p-10 bg-gradient-to-l to-violet-500 from-red-200 via-slate-400 rounded-lg">
       <h1 className="font-bold text-white text-3xl mb-4">Sign up</h1>
 
-      { succes && <span className="text-green-800">{succes}</span>}
-      {errors && <span className="text-red-700">{errors}</span>} 
+   
+      { errors ?    <span className="text-red-700">{errors}</span> : <span className="text-green-800">{succes}</span>}
 
       <input
         type="text"

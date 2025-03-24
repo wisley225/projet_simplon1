@@ -23,29 +23,20 @@ const SignIn = ({ onSendUsersId }) => {
     // Validation du mot de passe
     const testpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d.*@]{8,}$/;
     if (!testpassword.test(inputs.password.trim())) {
-      setErrors(
-        "Le mot de passe doit comporter au moins une majuscule, une minuscule et un chiffre"
-      );
+      setErrors("Le mot de passe doit comporter au moins une majuscule, une minuscule et un chiffre");
       setSucces("");
       return;
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost/e-commerce/sign_in.php",
-        inputs
-      );
-
-      console.log(res.data);
+      const res=await axios.post("http://localhost/e-commerce/sign_in.php",inputs);
 
       if (res.data.user === "valide") {
         setSucces("Connexion réussie !");
         setErrors("");
  const  usersId=res.data.usersId
-       console.log(usersId)
         onSendUsersId(usersId);
-        localStorage.setItem("usersid",usersId );
-
+        localStorage.setItem("usersid",usersId )
         navigate("/Shop");
       } else if (res.data.admin === "valide") {
         setSucces("Connexion réussie !");

@@ -1,6 +1,7 @@
 import Addproduct from "./Addproduct";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import profile_admin from '../pictures/profile_admin.jpg'
 
 const Produits = () => {
   const [showForm, setShowForm] = useState(false);
@@ -59,80 +60,72 @@ const Produits = () => {
   return (
     <>
       {showForm && <Addproduct fetchData={fetchData} />}
-      <div className="ml-10 ">
+      <div className=" ">
         <h1 className="text-red-600 text-xl font-bold w-full ">Gestion des Produits</h1>
         <h2 className="text-center mt-5 text-xl font-bold text-red-600 mb-10">Liste des produits</h2>
         <div className="text-end">
           <h1 className="text-2xl font-semibold mt-5">Ajouter un nouveau produit</h1>
           <button onClick={formAddProd} className="bg-green-600 px-4 py-1 rounded-lg text-white mt-3">+ Ajouter</button>
         </div>
-        <ul className="w-full flex flex-col p-2">
-          <li className="mb-2">
-            <ul className="border-b grid grid-cols-7 text-center">
-              <li className="text-lg py-2">#ID</li>
-              <li className="text-lg py-2">🖼️ IMAGE</li>
-              <li className="text-lg py-2">🏷️ NOM</li>
-              <li className="text-lg py-2">💰 PRIX</li>
-              <li className="text-lg py-2">📦 STOCK</li>
-              <li className="text-lg py-2"></li>
-              <li className="text-lg py-2"></li>
-            </ul>
-          </li>
-          <li className="">
-            {products.map((product) => (
-              <ul key={product.id} className="mb-2 grid grid-cols-7 gap-4  items-center ">
-                <li className="text-center text-lg font-medium  ">
-                  {editProduct === product.id ? (
-                    <input type="text" value={editedValues.id} className="w-full outline rounded-md"  />
-                  ) : (
-                    product.id
-                  )}
-                </li>
-                <li className="text-center text-lg font-medium ">
-                  {editProduct === product.id ? (
-                    <input type="text" value={editedValues.image} onChange={(e) => handleChange(e, "image")} className="w-full outline rounded-md"   />
-                  ) : (
-                  <div className=" rounded-lg size-20  "> <img src={`http://localhost/e-commerce/Admin/picture/${product.image_url}`} alt="  image du produit" className="size-full  object-center" />  </div>
-                  )}
-                </li>
-                <li className="text-center text-lg font-medium">
-                  {editProduct === product.id ? (
-                    <input type="text" value={editedValues.name} onChange={(e) => handleChange(e, "name")} className="w-full outline rounded-md"  />
+        <ul className="w-full flex flex-wrap justify-center   p-2   ">
+           
+     {
+      products.map((product)=>(
+
+
+        <div key={product.id} className=" mr-1 w-60 border rounded-lg p-2 mb-2  " >
+        <div className=" h-52  m-auto ">
+          <img src={`http://localhost/e-commerce/Admin/picture/${product.image_url}`} alt="" className="size-full rounded-lg object-cover object-center" />
+          
+        </div>
+        <p  className="   font-medium ">  {editProduct === product.id ? (
+                    <input type="text"  className="w-full outline rounded-md"  />
                   ) : (
                     product.name
-                  )}
-                </li>
-                <li className="text-center text-lg font-medium">
-                  {editProduct === product.id ? (
-                    <input type="text" value={editedValues.prix} onChange={(e) => handleChange(e, "prix")} className="w-full outline rounded-md"  />
+                  )} </p>
+        <p className="   w-40 font-medium ">prix:  {editProduct === product.id ? (
+                    <input type="text"  className="w-full outline rounded-md"  />
                   ) : (
                     product.prix
-                  )}
-                </li>
-                <li className="text-center text-lg font-medium">
-                  {editProduct === product.id ? (
-                    <input type="text" value={editedValues.stock} onChange={(e) => handleChange(e, "stock")} className="w-full outline rounded-md"  />
+                  )} $</p>
+        <p className="   w-40 font-medium ">stock:  {editProduct === product.id ? (
+                    <input type="text"  className="w-full outline rounded-md"  />
                   ) : (
                     product.stock
+                  )}</p>
+
+
+
+
+{editProduct === product.id ? (
+
+<div className="flex justify-evenly">
+<div  onClick={() => sauvegarderModification(product.id)} className=" border mt-2 p-1 rounded-lg font-semibold text-blue-700 cursor-pointer hover:bg-blue-500 hover:text-white transition-all"> <i class="fa-solid fa-pencil"></i> Enregistrer</div>
+<div onClick={() => setEditProduct(null)} className="border mt-2 p-1 rounded-lg font-semibold  text-red-500 hover:bg-red-500 hover:text-white cursor-pointer transition-all "><i class="fa-solid fa-trash"></i> annuler</div>
+</div>
+                  ) : (
+                    <div className="flex justify-evenly">
+                    <div onClick={() => modifier(product)} className=" border mt-2 p-1 rounded-lg font-semibold text-blue-700 cursor-pointer hover:bg-blue-500 hover:text-white transition-all"> <i class="fa-solid fa-pencil"></i> modifier</div>
+                    <div  onClick={() => supprimer(product.id)} className="border mt-2 p-1 rounded-lg font-semibold  text-red-500 hover:bg-red-500 hover:text-white cursor-pointer transition-all "><i class="fa-solid fa-trash"></i> supprimer</div>
+                  </div>
                   )}
-                </li>
-                {editProduct === product.id ? (
-                  <>
-                    <li className="bg-blue-600 px-4 py-1 rounded-lg text-white cursor-pointer text-center"
-                        onClick={() => sauvegarderModification(product.id)}> Enregistrer</li>
-                    <li className="bg-red-600 px-4 py-1 rounded-lg text-white cursor-pointer text-center"
-                        onClick={() => setEditProduct(null)}> Annuler</li>
-                  </>
-                ) : (
-                  <>
-                    <li className="bg-blue-600 px-4 py-1 rounded-lg text-white cursor-pointer text-center h-8 "
-                        onClick={() => modifier(product)}> Modifier</li>
-                    <li className="bg-red-600 px-4 py-1 rounded-lg text-white cursor-pointer text-center h-8 "
-                        onClick={() => supprimer(product.id)}> Supprimer</li>
-                  </>
-                )}
-              </ul>
-            ))}
+
+
+
+      
+
+
+      </div>
+
+      ))}
+    
+
+    
+    
+
+
+          <li>
+
           </li>
         </ul>
       
