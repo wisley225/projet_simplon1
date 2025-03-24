@@ -1,0 +1,23 @@
+
+
+
+.home{
+
+    background: url(./image2.jpg) center ;
+     background-size: cover;
+   
+}
+.ponomar-regular {
+    font-family: "Ponomar", system-ui;
+    
+    
+  }
+
+  
+.playwrite-hu-uniquifier {
+    font-family: "Playwrite HU", cursive;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+  

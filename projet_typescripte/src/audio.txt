@@ -1,0 +1,64 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+
+$api_key = "sk_27f60f33aaf655fb43c8eed9b2c29276fad34e9399a98eff"; // Remplace avec ta clé API ElevenLabs
+$voix_id = "21m00Tcm4TlvDq8ikWAM"; // Remplace avec l'ID de la voix que tu veux utiliser
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $donnees = json_decode(file_get_contents("php://input"), true);
+    
+    if (!isset($donnees["texte"]) || empty($donnees["texte"])) {
+        echo json_encode(["erreur" => "Aucun texte fourni"]);
+        exit;
+    }
+
+    $texte = $donnees["texte"];
+    $url = "https://api.elevenlabs.io/v1/text-to-speech/$voix_id";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Accept: audio/mpeg",
+        "Content-Type: application/json",
+        "xi-api-key: $api_key"
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+        "text" => $texte,
+        "voice_settings" => [
+            "stability" => 0.5,
+            "similarity_boost" => 0.5
+        ]
+    ]));
+
+    $reponse_audio = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($http_code !== 200) {
+        echo json_encode(["erreur" => "Erreur lors de la génération audio"]);
+        exit;
+    }
+
+    // Sauvegarde de l'audio sur le serveur
+    $dossier_cible = "reponses_audio/";
+    if (!is_dir($dossier_cible)) {
+        mkdir($dossier_cible, 0777, true);
+    }
+
+    $nom_fichier = "reponse_" . time() . ".mp3";
+    $chemin_fichier = $dossier_cible . $nom_fichier;
+    file_put_contents($chemin_fichier, $reponse_audio);
+
+    echo json_encode([
+        "message" => "Audio généré avec succès",
+        "chemin_audio" => "http://localhost/IA/$chemin_fichier"
+    ]);
+}
+?>
+
+
+
+
