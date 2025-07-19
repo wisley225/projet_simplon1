@@ -16,7 +16,7 @@ const fetchData = async () => {
     try {
         const resproduct = await axios.post('http://localhost/e-commerce/shop');
         const respCmd = await axios.post('http://localhost/e-commerce/Admin/comTT');
-        console.log(respCmd.data)
+       // console.log(respCmd.data)
     
         setTabProduct(resproduct.data)
         setTabCmd(respCmd.data)
@@ -30,7 +30,7 @@ const fetchData = async () => {
 
 const Tab_prixTT_Com =TabCmd.map(commande => commande.total_price)
 const prixTT_Com=Tab_prixTT_Com.reduce((a,b)=>a+b,0)
-console.log(prixTT_Com)
+// console.log(prixTT_Com)
 
 useEffect(() => {
 fetchData()

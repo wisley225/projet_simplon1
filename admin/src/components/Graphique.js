@@ -1,5 +1,4 @@
 import { Bar } from "react-chartjs-2"
-import { Chart as ChartJS, scales, Ticks } from "chart.js/auto";
 import { useEffect,useState } from "react";
 import axios from "axios";
 
@@ -13,7 +12,7 @@ const [donnees,setdonnes]=useState([])
        
     try {
         const response= await axios.post('http://localhost/e-commerce/Admin/Graphique');
-        console.log(response)
+      //  console.log(response)
         setdonnes(response.data)
         
         

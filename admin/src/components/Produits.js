@@ -1,7 +1,6 @@
 import Addproduct from "./Addproduct";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import profile_admin from '../pictures/profile_admin.jpg'
 
 const Produits = () => {
   const [showForm, setShowForm] = useState(false);
@@ -33,14 +32,14 @@ const Produits = () => {
     setEditedValues({ ...product });
   };
 
-  const handleChange = (e, field) => {
-    setEditedValues({ ...editedValues, [field]: e.target.value });
-  };
+  // const handleChange = (e, field) => {
+  //   setEditedValues({ ...editedValues, [field]: e.target.value });
+  // };
 
   const sauvegarderModification = async (id) => {
     try {
  const   res=  await axios.post('http://localhost/e-commerce/Admin/modifier.php', editedValues);
-      console.log(res.data)
+   //   console.log(res.data)
       setProducts(products.map(p => (p.id === id ? editedValues : p)));
       setEditProduct(null);
     } catch (error) {

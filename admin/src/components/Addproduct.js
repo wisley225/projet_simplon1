@@ -40,7 +40,6 @@ const AddProduct = ({fetchData}) => {
  
             setError('');
             hidden()
-
             setSuccess('Produit ajouté avec succès');
             setNotification(true)
            

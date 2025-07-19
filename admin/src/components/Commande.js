@@ -13,7 +13,7 @@ const [numberCmd_EN_COURS ,setNumberCmd_EN_COURS]=useState([]);// recupere les c
  const [numberCmd_EXPEDIE ,setNumberCmd_EXPEDIE]=useState([]);// recupere les commande expedié 
     const [numberCmd_LIVRE ,setNumberCmd_LIVRE]=useState([]);// recuperer les commande validé
     const [NumberCmd_ANNULER ,setNumberCmd_ANNULER]=useState([]);// recuperer les commande annuler
-    const [vente,setVentes]=useState([])// recuperer les commandes sur 1semaine
+  //  const [vente,setVentes]=useState([])// recuperer les commandes sur 1semaine
 const colorsRef=useRef(null);
 const [clickDetails,setClickDetails]=useState(false);
 
@@ -22,7 +22,7 @@ const [clickDetails,setClickDetails]=useState(false);
   const fetchData = async () => {
     try {
       const response = await axios.post('http://localhost/e-commerce/Admin/commande');//recuperer toute les  commandes
-            console.log(response.data)
+          //  console.log(response.data)
 
     setCommandes(response.data)
     setOriginalCommandes(response.data)
@@ -32,9 +32,9 @@ const [clickDetails,setClickDetails]=useState(false);
     setNumberCmd_LIVRE(response.data.filter(commande=>(commande.order_status==="livre")))
     setNumberCmd_ANNULER(response.data.filter(commande=>(commande.order_status==="annuler")))
   
-     setVentes(numberCmd_LIVRE.map(cmd=>(cmd.quantity*cmd.prix)))
-      console.log(vente)
-      console.log(commandes)
+    // setVentes(numberCmd_LIVRE.map(cmd=>(cmd.quantity*cmd.prix)))
+    //   console.log(vente)
+    //   console.log(commandes)
    
     
     } catch (error){
@@ -60,7 +60,7 @@ const showDetails=async(commande_id)=>{
 console.log(commande_id)
     try {
         const respCmd = await axios.post('http://localhost/e-commerce/Admin/details_orders.php',{commande_id});
-        console.log(respCmd.data)
+      //  console.log(respCmd.data)
         setShowDetailsComd(respCmd.data.produits)
         setShowDetailsPlus(respCmd.data.details_livraison)
         setClickDetails(!clickDetails) 
@@ -71,7 +71,7 @@ console.log(commande_id)
 }
 
 
-console.log(detailsplus)
+//console.log(detailsplus)
   
 
 

@@ -10,7 +10,7 @@ const Users =()=>{
 
     const [users,setUsers]=useState([])
     const [usersCopie, setUsersCopie]=useState([])
-    const roleRef=useRef(null)
+    
     const formAdminRef=useRef(null)
     const [succes, setSuccess]=useState('')
     const [error, setError]=useState('')
@@ -27,7 +27,7 @@ const Users =()=>{
           const response = await axios.post('http://localhost/e-commerce/Admin/users');  
           setUsers(response.data)  
           setUsersCopie(response.data) 
-          console.log(response.data)
+         // console.log(response.data)
         } catch (error) {
           console.error("Erreur lors de la récupération des produits:", error);
         }
@@ -57,11 +57,11 @@ const handleRole=async(id,role)=>{
 
  let roleUsers=''
  role === 'admin' ? roleUsers = 'client' : roleUsers = 'admin'
- console.log(roleUsers)
+ //console.log(roleUsers)
 
   try {
     const resRole=await axios.post('http://localhost/e-commerce/Admin/handlerole', {id, roleUsers})
-  console.log(resRole.data)
+ // console.log(resRole.data)
   fetchData()
 
 
@@ -102,7 +102,7 @@ if (input.password === input.password_comfirm) {
 
   try {
     const res= await axios.post('http://localhost/e-commerce/sign_up/', input)
-    console.log(res.data)
+  //  console.log(res.data)
     if (res.data.message==='valide') {
        setSuccess('utilisateur enregistrer  avec succes')
        setError('')
@@ -136,7 +136,7 @@ const handleFiltre=(value)=>{
 const Bannir=async(id)=>{
  try {
  const respBannir=await axios.post('http://localhost/e-commerce/Admin/Bannir',{id})
-  console.log(respBannir.data)
+ // console.log(respBannir.data)
   alert(respBannir.data.success)
   fetchData()
  } catch (error) {
