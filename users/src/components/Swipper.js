@@ -1,36 +1,3 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay } from "swiper/modules"; 
-// import "swiper/css";
-
-// const images = [
-//   "https://img.freepik.com/photos-premium/fille-dans-rue-parapluie-pour-promenade-jour-automne_494741-12147.jpg?ga=GA1.1.1510473559.1738947619&semt=ais_hybrid",
-//   "https://img.freepik.com/photos-premium/fille-dans-rue-parapluie-pour-promenade-jour-automne_494741-12147.jpg?ga=GA1.1.1510473559.1738947619&semt=ais_hybrid",
-//   "https://img.freepik.com/photos-premium/fille-dans-rue-parapluie-pour-promenade-jour-automne_494741-12147.jpg?ga=GA1.1.1510473559.1738947619&semt=ais_hybrid",
-// ];
-
-// const Swipper = () => {
-//   return (
-//     <div className=" ">
-//       <Swiper
-//         modules={[Autoplay]}
-//         spaceBetween={10}
-//         slidesPerView={1}
-//         loop={true} 
-//         autoplay={{ delay: 3000, disableOnInteraction: false }} // Défilement toutes les 3s
-//         className="rounded-lg size-64"
-//       >
-//         {images.map((src, index) => (
-//           <SwiperSlide key={index}>
-//             <img src={src} alt={`Slide ${index + 1}`} className="object-cover rounded-lg w-full h-full" />
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-
-//     </div>
-//   );
-// };
-
-// export default Swipper;
 
 import React, { useState } from 'react';
 
@@ -42,9 +9,9 @@ const Swipper = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Simuler le traitement de la commande
-    console.log('Adresse de livraison:', deliveryAddress);
-    console.log('Option de livraison:', deliveryOption);
-    console.log('Paiement simule avec les informations:', paymentInfo);
+    // console.log('Adresse de livraison:', deliveryAddress);
+    // console.log('Option de livraison:', deliveryOption);
+    // console.log('Paiement simule avec les informations:', paymentInfo);
     alert('Commande soumise avec succes!');
   };
 

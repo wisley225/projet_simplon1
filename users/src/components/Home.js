@@ -1,5 +1,4 @@
 
-import picture_home from '../picture/picture_home.png';
 import SignUp from "./SignUp";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,13 +9,13 @@ import { useRef } from 'react';
 
 
 const images = [
-    "http://localhost/e-commerce/admin/picture/picture_home",
-    "http://localhost/e-commerce/admin/picture/image_shop",
-    "http://localhost/e-commerce/admin/picture/casque_rose-remove",
-    "http://localhost/e-commerce/admin/picture/iphone16-remove",
-    "http://localhost/e-commerce/admin/picture/chapeau_remove",
-    "http://localhost/e-commerce/admin/picture/chaussure_remove",
-    "http://localhost/e-commerce/admin/picture/vetement-bebe",
+    "/picture/picture_home.png",
+    "/picture/image_shop.png",
+    "/picture/casque_rose-remove.png",
+    "/picture/iphone16-remove.png",
+    "/picture/chapeau_remove.png",
+    "/picture/chaussure_remove.png",
+    "/picture/vetement-bebe.png",
   ];
 
 const Home=()=>{

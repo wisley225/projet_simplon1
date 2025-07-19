@@ -6,10 +6,8 @@ import { useNavigate } from "react-router-dom";
 const  Profil = () =>{
    
 const [users,setUsers]=useState({});
-const [loading,setLoading]=useState(true);
 const [editUsers,setEditUsers]=useState(null);
 const [editValues,setEditValues]=useState({});
-const [error,setError]=useState(null)
 
 const navigate=useNavigate()
 
@@ -48,9 +46,9 @@ const modifier=(id)=>()=>{
 const enregistrer=async(id)=>{
     try{
         const response=await axios.post('http://localhost/e-commerce/Admin/profile',{id,...editValues});
-        console.log(response.data)
+        // console.log(response.data)
         setUsers({...editValues});
-        console.log(editValues)
+        // console.log(editValues)
         setEditUsers(null);
       
     }

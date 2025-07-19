@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState,useEffect,useRef } from "react";
 import Catalogue from "./Catalogue";
 
-import image_shop from  '../picture/image_shop.png';
 import Navbar from "./Navbar";
 import Chargement from "./Chargement";
 import ReactPaginate from "react-paginate";
@@ -69,7 +68,7 @@ const handlePageClick = (event) => {
 const catalogue=async(id)=>{
 setIdProduct(id)
 setShowCatalogue(!showCatalogue)
-console.log(idProduct)
+// console.log(idProduct)
 
 }
 
@@ -129,7 +128,7 @@ return (
 <div className="w-full  ">
 <div className="bg-blue-200 h-40 flex  max-[320px]:w-full  justify-between px-10  items-center w-9/12 m-auto  rounded-xl  ">
   <h1 className="font-extrabold ">HOME . SHOPPING</h1>
-  <img src={image_shop} alt="" className=" size-40 transform " />
+  <img src="http://localhost/e-commerce/picture/image_shop.png" alt="" className=" size-40 transform " />
 </div>
 
 

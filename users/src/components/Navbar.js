@@ -13,7 +13,6 @@ const ProfileRef=useRef(null)
     navigate(-1)
 
   }
-  console.log(panierLength)
 
 const Profile=()=>{
 
@@ -43,9 +42,7 @@ const Profile=()=>{
    <sup className={panierLength>0 ? 'py-1 px-2 rounded-full relative right-2 bg-red-600 text-white' : null}>{panierLength} </sup> </span> 
    </Link>       
         
-        
-        
-        <Link ><i onClick={Profile} data-tooltip-id="tooltip1 "  className="fa-solid fa-user border p-3 rounded-full text-neutral-400 cursor-pointer transition-all hover:transition-all hover:bg-blue-100">  </i></Link>
+   <Link ><i onClick={Profile} data-tooltip-id="tooltip1 "  className="fa-solid fa-user border p-3 rounded-full text-neutral-400 cursor-pointer transition-all hover:transition-all hover:bg-blue-100">  </i></Link>
         <Tooltip  id="tooltip1" content="voir  mon  profil"/>
     </div>
 

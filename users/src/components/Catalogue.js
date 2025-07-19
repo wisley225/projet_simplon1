@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useState, useEffect,useRef } from "react";
-import { Link } from "react-router-dom";
-import image_connexion2 from '../picture/image_connexion2.webp'
 
 const Catalogue = ({ idProduct, usersid, catalogue,setCatalogue, notifPanier }) => {
   const [product, setProduct] = useState({});
@@ -19,7 +17,7 @@ const Catalogue = ({ idProduct, usersid, catalogue,setCatalogue, notifPanier }) 
 
       if (findProduct) {
         setProduct(findProduct);
-        console.log(findProduct);
+       
       }
 
     
@@ -27,7 +25,7 @@ const Catalogue = ({ idProduct, usersid, catalogue,setCatalogue, notifPanier }) 
       console.error("Erreur lors de la récupération des produits:", error);
     }
 
-    console.log(idProduct)
+   
   };
 
   useEffect(() => {

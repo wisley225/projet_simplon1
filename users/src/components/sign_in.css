@@ -1,6 +1,6 @@
 #bg{
 
-    background: url(../picture/image_connexion6.jpg) no-repeat ;
+    background-image: url('/public/picture/image_connexion6.jpg');
     background-size: cover;
   
     

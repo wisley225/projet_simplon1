@@ -41,11 +41,10 @@ const SignIn = ({ onSendUsersId }) => {
       } else if (res.data.admin === "valide") {
         setSucces("Connexion réussie !");
         setErrors("");
-        window.location.href = "http://localhost:3001/dashboard";
+        window.location.href = "http://localhost:3005/dashboard";
       } else if (res.data.message) {
         setErrors(res.data.message);
-        setSucces("");
-      }
+        setSucces("");      }
     } catch (err) {
       setErrors("Problème de connexion au serveur");
       setSucces("");

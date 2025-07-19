@@ -68,7 +68,7 @@ if (panierProduct.length>0) {
     const updatePanierProduit = panierProduct.filter((produit) => produit.panier_id !== id); 
     const response = await axios.post("http://localhost/e-commerce/supprimer_panier", {id});
     setPanierProduct(updatePanierProduit);
-    console.log(response.data)
+ //   console.log(response.data)
   };
 
 const formCommande=()=>{
@@ -78,8 +78,8 @@ navigate('/Commande')
 
 }
 
-  console.log(panierProduct)
-  console.log(prixTotalPanier)
+  // console.log(panierProduct)
+  // console.log(prixTotalPanier)
 
   return (
     <>

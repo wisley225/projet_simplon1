@@ -40,9 +40,9 @@ const Commande = () => {
        const restabproduct = await axios.post("http://localhost/e-commerce/recup_panier", {Productid, usersid} );
        const produit= restabproduct.data;
        if (produit) {   
-      console.log(produit)
+ 
       const response = await axios.post("http://localhost/e-commerce/commander", { ...inputs, tabProduct:produit });
-      console.log(response.data)
+    
       alert(response.data.message)
       navigate(-2)  
      }

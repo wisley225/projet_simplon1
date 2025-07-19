@@ -1,5 +1,4 @@
 
-import shopping from '../picture/shopping.jpg'
 import { useState,useRef  } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
@@ -91,7 +90,7 @@ return (
 
  <div ref={filterRef} className="min-h-80 max-[425px]:scale-110 max-[522px]:left-16 max-[522px]:scale-75     max-[865px]:left-28 max-[951px]:left-36 max-[951px]:w-8/12   max-[1129px]:w-7/12 max-[1129px]:left-56  w-6/12 absolute z-20 max-xl:left-72  left-80 top-20 grid grid-cols-2 m-auto   transition-all transform max-[865px]:grid-cols-1 scale-0">
     <div className='max-[865px]:hidden'>
-      <img src={shopping} alt="" className="h-full w-full object-cover rounded-s-lg" />
+      <img src="/picture/shopping.jpg" alt="" className="h-full w-full object-cover rounded-s-lg" />
     </div>
     <form onSubmit={handleSubmit} method="POST" className=" p-10 bg-gradient-to-l to-violet-500 from-red-200 via-slate-400 rounded-lg">
       <h1 className="font-bold text-white text-3xl mb-4">Sign up</h1>
