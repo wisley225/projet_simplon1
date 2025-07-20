@@ -51,7 +51,7 @@ const SignUp = ({sign}) => {
  }
 
   try {
-    const response=await axios.post('http://simplon1projet.lovestoblog.com/users-backend/sign_up.php',inputs)
+    const response=await axios.post('https://simplon1projet.lovestoblog.com/users-backend/sign_up.php',inputs)
     setSucces(response.data.message);
 
     if(response.data.message==="valide"){
