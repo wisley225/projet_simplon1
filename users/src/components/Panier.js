@@ -149,7 +149,7 @@ navigate('/Commande')
    </div>
 
  </div>
-):<div  className="border h-screen flex justify-center items-center text-neutral-400  "><i class="fa-solid fa-cart-shopping text-9xl"></i></div>   
+):<div  className="border h-screen flex justify-center items-center text-neutral-400  "><i className="fa-solid fa-cart-shopping text-9xl"></i></div>   
 } 
 
 

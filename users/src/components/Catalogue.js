@@ -109,11 +109,11 @@ const removeCatalogue=()=>{
     <span className="mr-5 text-2xl">${product.prix}
     </span>
      <br/> <br/>
-     <i class="fa-solid fa-star text-yellow-400"></i>
-      <i class="fa-solid fa-star text-yellow-400"></i>
-      <i class="fa-solid fa-star text-yellow-400"></i>
-      <i class="fa-regular fa-star"></i>
-      <i class="fa-regular fa-star"></i> 
+             <i className="fa-solid fa-star text-yellow-400"></i>
+        <i className="fa-solid fa-star text-yellow-400"></i>
+        <i className="fa-solid fa-star text-yellow-400"></i>
+        <i className="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i> 
       <span className="text-green-500"> (600 exemplaire vendu)</span></p>
    <p className="text-neutral-400 "> categories: {product.categories} </p>
    <div>
@@ -131,8 +131,8 @@ const removeCatalogue=()=>{
 
 <ul className="  mt-4 ">
   <li className="font-semibold ">details </li>
-  <li><i class="fa-solid fa-location-dot"></i> marcory-residentiel </li>
-  <li><i class="fa-solid fa-shield"></i>produit 100% origiale </li>  
+          <li><i className="fa-solid fa-location-dot"></i> marcory-residentiel </li>
+        <li><i className="fa-solid fa-shield"></i>produit 100% origiale </li>  
 </ul>
     </div> 
 
@@ -141,7 +141,7 @@ const removeCatalogue=()=>{
 
 <div className="   bg-neutral-300 flex justify-center rounded-e-lg    p-2  "> 
 <div className="bg-white  w-full rounded-md p-2  ">
-<i onClick={removeCatalogue } class="fa-solid fa-xmark  w-full text-end cursor-pointer"></i>
+        <i onClick={removeCatalogue } className="fa-solid fa-xmark  w-full text-end cursor-pointer"></i>
   <h1 className="text-2xl font-semibold border-b ">details de la commande</h1>
   <div className="flex ">
     <p className="w-8/12 place-content-center text-xl font-medium ">Quantite</p><div className=" h-10  grid  gap-1 grid-cols-3 w-4/12 "> 
@@ -160,7 +160,7 @@ const removeCatalogue=()=>{
   <p className="text-xl my-2">Notes</p>
   <div className="flex justify-between  py-2 px-4 font-semibold mb-2  "><span className=" ">prix total:</span> <span>${prixTotal}</span></div>
   <div className="  py-2 mb-3 px-4 font-semibold text-center w-full m-auto rounded-md text-white bg-blue-600 hover:transition-all transition-all hover:bg-blue-800 cursor-pointer "> Acheter</div>
-  <div onClick={()=>ajouter()}   className=" border py-2   font-semibold text-center  m-auto rounded-md bg-white text-blue-600 hover:transition-all transition-all hover:bg-blue-800 cursor-pointer  hover:text-white  "> <i class="fa-solid fa-cart-arrow-down"></i> Ajouter</div>
+  <div onClick={()=>ajouter()}   className=" border py-2   font-semibold text-center  m-auto rounded-md bg-white text-blue-600 hover:transition-all transition-all hover:bg-blue-800 cursor-pointer  hover:text-white  "> <i className="fa-solid fa-cart-arrow-down"></i> Ajouter</div>
 
 </div>
 </div>

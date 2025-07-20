@@ -35,38 +35,41 @@ const SignUp = ({sign}) => {
   if (!testnom.test(inputs.fullname.trim())) {
    setErrors('Nom invalide')
    setSucces('')
+   return;
  }
  
  if (inputs.password !== inputs.password_confirm){
-  setErrors('la confirmation du mot de passe ne correspond pas');
+  setErrors('La confirmation du mot de passe ne correspond pas');
   setSucces('')
+  return;
+ }
 
-}
-
-
-else{
+ if (inputs.password.length < 6) {
+   setErrors('Le mot de passe doit contenir au moins 6 caractères');
+   setSucces('')
+   return;
+ }
 
   try {
-    const response=await axios.post('http://localhost/e-commerce/sign_up.php',inputs)
+    const response=await axios.post('http://simplon1projet.lovestoblog.com/users-backend/sign_up.php',inputs)
     setSucces(response.data.message);
 
     if(response.data.message==="valide"){
-    
-        alert('inscription validé') 
+        alert('Inscription validée') 
         navigate('/SignIn');
         setErrors('');
-   
     }
     else{
       setErrors(response.data.message)
     }
     
   } catch (error) {
-    
-    console.error("ereur lors de l'envoie du formulaire ",error)
+    console.error("Erreur lors de l'envoi du formulaire ",error)
+    setErrors('Erreur de connexion au serveur')
+    setSucces('')
   }
 
-}}
+}
 
 
 
@@ -96,7 +99,8 @@ return (
       <h1 className="font-bold text-white text-3xl mb-4">Sign up</h1>
 
    
-      { errors ?    <span className="text-red-700">{errors}</span> : <span className="text-green-800">{succes}</span>}
+      {errors && <div className="text-red-700 bg-red-100 p-2 rounded-lg mb-4 text-center">{errors}</div>}
+      {succes && <div className="text-green-800 bg-green-100 p-2 rounded-lg mb-4 text-center">{succes}</div>}
 
       <input
         type="text"

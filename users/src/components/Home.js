@@ -137,9 +137,9 @@ const showMenu=()=>{
     
       </Swiper>
       <p className=' text-end '>
-      <i class="fa-brands fa-facebook text-2xl border px-1 rounded-full  ml-3  text-center"></i>
-      <i class="fa-brands fa-instagram text-2xl border px-1 rounded-full  ml-3 text-center "></i>
-      <i class="fa-brands fa-twitter text-2xl border px-1 rounded-full  ml-3  text-center"></i>
+      <i className="fa-brands fa-facebook text-2xl border px-1 rounded-full  ml-3  text-center"></i>
+      <i className="fa-brands fa-instagram text-2xl border px-1 rounded-full  ml-3 text-center "></i>
+      <i className="fa-brands fa-twitter text-2xl border px-1 rounded-full  ml-3  text-center"></i>
       </p>
 </div>
   

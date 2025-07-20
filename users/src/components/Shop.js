@@ -136,7 +136,7 @@ return (
 <div className="product-list p-4    ">
   <div className="flex  items-center justify-end">
   <i onClick={handleFiltrer}   className="fa-solid fa-filter border mr-2  p-3 rounded-full text-neutral-400 cursor-pointer transition-all hover:transition-all hover:bg-blue-100   " ></i>
-  <div className=" w-60 flex border text-center   rounded-lg"><i class="fa-solid fa-magnifying-glass text-lg self-center  w-1/6    text-gray-300"></i>
+  <div className=" w-60 flex border text-center   rounded-lg"><i className="fa-solid fa-magnifying-glass text-lg self-center  w-1/6    text-gray-300"></i>
  <input onChange={(e)=>BarSearch(e.target.value)}  type="search  " placeholder="recherche" className=" py-2 ml-4  w-full outline-none "  /> 
 </div>
   </div>
@@ -176,14 +176,14 @@ return (
               
               <img src={`http://localhost/e-commerce/Admin/picture/${product.image_url}`} alt="Produit" className=" transition-all hover:transition-all w-full h-full " />
             <div>
-            <i onClick={()=>catalogue(product.id)} class="fa-solid fa-cart-plus relative  border text-xl   rounded-full bg-blue-500 text-white cursor-pointer text-center size-10 pt-2 hover:bg-blue-700 active:transform active:scale-90  bottom-5 left-44 "></i>
+            <i onClick={()=>catalogue(product.id)} className="fa-solid fa-cart-plus relative  border text-xl   rounded-full bg-blue-500 text-white cursor-pointer text-center size-10 pt-2 hover:bg-blue-700 active:transform active:scale-90  bottom-5 left-44 "></i>
             
             </div>
               </div>
     <div className="text-lg font-semibold text-center">
     <h3 className="">{product.name}</h3>
           
-            <p><span className="mr-5">${product.prix}</span>  <i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-solid fa-star text-yellow-400"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+            <p><span className="mr-5">${product.prix}</span>  <i className="fa-solid fa-star text-yellow-400"></i><i className="fa-solid fa-star text-yellow-400"></i><i className="fa-solid fa-star text-yellow-400"></i><i className="fa-regular fa-star"></i><i className="fa-regular fa-star"></i></p>
        
 </div>
           </div>
